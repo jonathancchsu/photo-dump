@@ -5,11 +5,13 @@ const usersRouter = require('./users.js');
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 
-router.post('/test', (req, res) => {
-  res.json({ requestBody: req.body });
-});
 
-// testing api 
+// testing api from frontend
+// router.post('/test', (req, res) => {
+//   res.json({ requestBody: req.body });
+// });
+
+// testing api
 // fetch('/api/test', {
 //   method: "POST",
 //   headers: {
