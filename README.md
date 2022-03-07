@@ -1,18 +1,18 @@
-# Photo-Dump
+# _**Photo-Dump**_
 
-## Welcome to Photo Dump wiki
+## **Welcome to Photo Dump wiki**
 
 Photo Dump is an application that allows users to keep a collection of moments in their lives by uploading photos and sharing them with people.
 
-## Technologies used
+## **Technologies used**
 
 Javascript, Express, React/ Redux, PostgreSQL, Heroku
 
-## Link to Live Site
+## **Link to Live Site**
 
 [Photo Dump](https://photo-dump.herokuapp.com/)
 
-## Feature List
+## **Feature List**
 
 ### 1. Account management
 * A new user will be able to create a new account.
@@ -44,6 +44,33 @@ Javascript, Express, React/ Redux, PostgreSQL, Heroku
 * Users will be able to categorize their photos when posting a new photo.
 * Users will be able to change or remove the category of their photos.
 
-## Database Schema
+## **Database Schema**
 
 ![photo-dump](https://user-images.githubusercontent.com/92463844/156962471-d67e907e-7c5e-4cb6-9db6-c595caaa2406.png)
+
+## **Front End Routes**
+
+### `/photos`
+
+Users will be able to see all the photos posted, a specific post, or the form to upload a new photo.
+
+* `GET /photos`
+* `GET /photos/:id`
+* `GET /photos/new`
+* `POST /photos/new`
+
+### `/profile`
+
+Users will be able to view the profiles of their own or of other users.
+
+* `GET /profile`
+* `GET /profile/:id`
+
+### `/albums`
+
+Users will be able to view all the albums, a specific album, or the form to make a new album.
+
+* `GET /albums`
+* `GET /albums/:id`
+* `GET /albums/new`
+* `POST /albums/new`
