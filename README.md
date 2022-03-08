@@ -88,7 +88,7 @@ Photo Dump is an application that allows users to keep a collection of moments i
 
 ## **Database Schema**
 
-![photo-dump](https://user-images.githubusercontent.com/92463844/156962471-d67e907e-7c5e-4cb6-9db6-c595caaa2406.png)
+![photo-dump (1)](https://user-images.githubusercontent.com/92463844/157144962-4e3af837-e436-45c4-b673-3a71e3bc0783.png)
 
 ## **Front End Routes**
 
