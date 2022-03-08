@@ -39,9 +39,9 @@ Photo Dump is an application that allows users to keep a collection of moments i
 6. First, check the package.json file in the front end folder and make sure that the port you are hosting on is matching with the port in `"proxy: "http://localhost:5000"`. Also make sure that the port configuration is matching one in the .env file `PORT=`.
 
 7. Create, migrate and seed the database with the following command lines.
-* `npx dotenv sequelize-cli db:create`
-* `npx dotenv sequelize-cli db:migrate`
-* `npx dotenv sequelize-cli db:seed:all`
+* `npx sequelize-cli db:create`
+* `npx sequelize-cli db:migrate`
+* `npx sequelize-cli db:seed:all`
 
 8. Start the application in the backend directory.
 * `npm start`
@@ -88,7 +88,7 @@ Photo Dump is an application that allows users to keep a collection of moments i
 
 ## **Database Schema**
 
-![photo-dump (1)](https://user-images.githubusercontent.com/92463844/157144962-4e3af837-e436-45c4-b673-3a71e3bc0783.png)
+![photo-dump (2)](https://user-images.githubusercontent.com/92463844/157259974-4564390d-6e90-418d-9245-4d298ead8c75.png)
 
 ## **Front End Routes**
 
