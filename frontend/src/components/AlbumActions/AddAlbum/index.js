@@ -13,7 +13,7 @@ function AddAlbum () {
   const [name, setName] = useState([]);
 
   useEffect(() => {
-    dispatch(sessionActions.restore());
+    dispatch(sessionActions.restoreUser());
   }, []);
 
   useEffect(() => {
