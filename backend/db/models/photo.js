@@ -25,13 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: "Users"}
-    },
-    category_id: {
-      type: DataTypes.INTEGER
-    },
-    album_id: {
-      type: DataTypes.INTEGER
+      references: { model: "Users" }
     }
   }, {});
   Photo.associate = function(models) {

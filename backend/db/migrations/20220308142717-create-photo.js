@@ -18,14 +18,13 @@ module.exports = {
       },
       caption: {
         allowNull: false,
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        default: ''
       },
       user_id: {
         allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      category_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: { model: 'Users' }
       },
       createdAt: {
         allowNull: false,
