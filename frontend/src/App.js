@@ -68,16 +68,16 @@ function App() {
           <ViewAlbum />
         </Route>
         <Route to='albums/:id/edit'>
-          <EditAlbum />
+          <EditAlbum albums={albums}/>
         </Route>
         <Route to='/photos/new'>
-          <AddPhoto />
+          <AddPhoto albums={albums}/>
         </Route>
         <Route to='/photos/:id'>
           <ViewPhoto />
         </Route>
         <Route to='/photos/:id/edit'>
-          <EditPhoto />
+          <EditPhoto albums={albums}/>
         </Route>
         <Route>
           <p className="page-does-not-exist">Sorry, this page does not exist.</p>
