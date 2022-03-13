@@ -11,7 +11,7 @@ import ViewAlbum from "./components/AlbumActions/ViewAlbum";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import AddPhoto from "./components/PhotoActions/AddPhoto";
-import AllPhotos from "./components/PhotoActions/AllPhotos";
+import AllPhotos from "./components/PhotoActions/Explore";
 import EditPhoto from "./components/PhotoActions/EditPhoto";
 import MyPhotos from "./components/PhotoActions/MyPhotos";
 import ViewPhoto from "./components/PhotoActions/ViewPhoto";
