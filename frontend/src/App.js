@@ -45,8 +45,9 @@ function App() {
     )
   }
 
-  return isLoaded (
+  return isLoaded && (
     <>
+      <Header />
       <Switch>
         <Route path="/signup">
           <SignupFormPage />

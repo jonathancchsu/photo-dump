@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-// import SplashNavigation from "../SplashPageNavigation";
+import SplashNavigation from "../SplashNavigation";
 import Footer from "../Footer";
 import './SplashPage.css'
 
@@ -13,7 +13,7 @@ function SplashPage() {
 
     return (
         <div className='splash-container'>
-            {/* <SplashNavigation /> */}
+            <SplashNavigation />
             {/* <SplashImage /> */}
             <Footer />
         </div>
