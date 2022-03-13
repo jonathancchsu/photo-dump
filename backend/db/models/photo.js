@@ -10,11 +10,22 @@ module.exports = (sequelize, DataTypes) => {
     },
     caption: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [10, 1000]
+      }
+    },
+    photo_url: {
+      allowNull: false,
+      type: DataTypes.STRING(1000),
+      validate: {
+        len: [10, 1000]
+      }
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: { model: "Users"}
     },
     category_id: {
       type: DataTypes.INTEGER
@@ -25,6 +36,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Photo.associate = function(models) {
     // associations can be defined here
+    Photo.belongsTo(models.User, {foreignKey: 'user_id'})
+    Photo.hasMany(models.PhotosInAlbum, { foreignKey: 'photo_id', onDelete: 'CASCADE', hooks: true })
   };
   return Photo;
 };

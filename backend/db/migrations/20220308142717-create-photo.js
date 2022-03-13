@@ -27,9 +27,6 @@ module.exports = {
       category_id: {
         type: Sequelize.INTEGER
       },
-      album_id: {
-        type: Sequelize.INTEGER
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -28,18 +28,17 @@ function EditPhoto({albums}) {
     const [album_id, setAlbum_id] = useState('');
     const [errors, setErrors] = useState([]);
 
-
     useEffect(() => {
       let errors = [];
       if (!title) {
-        errs.push('You need a title for your photo.');
+        errors.push('You need a title for your photo.');
       }
       if (!caption) {
-        errs.push('You need a caption for your photo.');
+        errors.push('You need a caption for your photo.');
       }
 
       setErrors(errors);
-    }, [title, caption, dateTaken])
+    }, [title, caption])
 
     useEffect(() => {
         if(!title) {

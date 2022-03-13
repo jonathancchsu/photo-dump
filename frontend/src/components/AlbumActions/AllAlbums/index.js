@@ -5,6 +5,7 @@ import './AllAlbums.css';
 function AllAlbums ({ albums }) {
   return (
     <div className='all-albums-div'>
+      <title className='album-title'>Albums</title>
       {albums?.map((album) => {
         return (
           <div key={album.id}>

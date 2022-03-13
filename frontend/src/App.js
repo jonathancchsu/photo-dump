@@ -59,47 +59,47 @@ function App() {
   return isLoaded && (
     <>
       <Header />
-      <Switch>
-        <Route path="/signup">
-          <SignupFormPage />
-        </Route>
-        <Route path='/'>
-          <AllPhotos />
-        </Route>
-        <Route to='/profile'>
-          <MyPhotos />
-        </Route>
-        <Route to='albums'>
-          <AllAlbums />
-        </Route>
-        <Route to='albums/new'>
-          <AddAlbum />
-        </Route>
-        <Route to='albums/:id'>
-          <ViewAlbum />
-        </Route>
-        <Route to='albums/:id/edit'>
-          <EditAlbum albums={albums}/>
-        </Route>
-        <Route to='/photos/new'>
-          <AddPhoto albums={albums}/>
-        </Route>
-        <Route to='/photos/:id'>
-          <ViewPhoto />
-        </Route>
-        <Route to='/photos/:id/edit'>
-          <EditPhoto albums={albums}/>
-        </Route>
-        <Route path='/login'>
-          <Redirect to='/' />
-        </Route>
-        <Route path='/signup'>
-          <Redirect to='/' />
-        </Route>
-        <Route>
-          <p className="page-does-not-exist">Sorry, this page does not exist.</p>
-        </Route>
-      </Switch>
+        <Switch>
+          <Route path="/signup">
+            <SignupFormPage />
+          </Route>
+          <Route exact path='/'>
+            <AllPhotos />
+          </Route>
+          <Route exact oath='/profile'>
+            <MyPhotos />
+          </Route>
+          <Route exact path='/albums'>
+            <AllAlbums />
+          </Route>
+          <Route exact path='/albums/new'>
+            <AddAlbum />
+          </Route>
+          <Route exact path='/albums/:id'>
+            <ViewAlbum />
+          </Route>
+          <Route exact path='/albums/:id/edit'>
+            <EditAlbum albums={albums}/>
+          </Route>
+          <Route exact path='/photos/new'>
+            <AddPhoto albums={albums}/>
+          </Route>
+          <Route exact path='/photos/:id'>
+            <ViewPhoto />
+          </Route>
+          <Route exact path='/photos/:id/edit'>
+            <EditPhoto albums={albums}/>
+          </Route>
+          <Route path='/login'>
+            <Redirect to='/' />
+          </Route>
+          <Route path='/signup'>
+            <Redirect to='/' />
+          </Route>
+          <Route>
+            <p className="page-does-not-exist">Sorry, this page does not exist.</p>
+          </Route>
+        </Switch>
       <Footer />
     </>
   );

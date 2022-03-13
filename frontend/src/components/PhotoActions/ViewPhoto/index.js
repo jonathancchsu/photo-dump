@@ -28,7 +28,7 @@ function ViewPhoto () {
     history.push('/');
   }
 
-  if (!single) {
+  if (!selectedPhoto) {
     return (
       <p className='does-not-exist'>This photo does not exist.</p>
     )
