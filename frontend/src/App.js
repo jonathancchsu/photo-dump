@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
+
 import * as sessionActions from "./store/session";
-import Navigation from "./components/Navigation";
+
+import SignupFormPage from "./components/SignupFormPage";
+import LoginFormPage from "./components/LoginFormPage";
 import AddAlbum from "./components/AlbumActions/AddAlbum";
 import AllAlbums from "./components/AlbumActions/AllAlbums";
 import EditAlbum from "./components/AlbumActions/EditAlbum";
@@ -40,6 +42,15 @@ function App() {
       <Switch>
         <Route exact path = '/'>
           <SplashPage />
+        </Route>
+        <Route path='/login'>
+          <LoginFormPage />
+        </Route>
+        <Route path='/signup'>
+          <SignupFormPage />
+        </Route>
+        <Route>
+          <p className="does-not-exist">Sorry. This page does not exist.</p>
         </Route>
       </Switch>
     )
@@ -78,6 +89,12 @@ function App() {
         </Route>
         <Route to='/photos/:id/edit'>
           <EditPhoto albums={albums}/>
+        </Route>
+        <Route path='/login'>
+          <Redirect to='/' />
+        </Route>
+        <Route path='/signup'>
+          <Redirect to='/' />
         </Route>
         <Route>
           <p className="page-does-not-exist">Sorry, this page does not exist.</p>
