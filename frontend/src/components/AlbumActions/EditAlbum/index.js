@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import * as sessionActions from '../../../store/session';
 

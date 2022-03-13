@@ -45,44 +45,43 @@ function App() {
     )
   }
 
-  return (
+  return isLoaded (
     <>
-      <Navigation isLoaded={isLoaded} />
-        <Switch>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-          <Route path='/'>
-            <AllPhotos />
-          </Route>
-          <Route to='/profile'>
-            <MyPhotos />
-          </Route>
-          <Route to='albums'>
-            <AllAlbums />
-          </Route>
-          <Route to='albums/new'>
-            <AddAlbum />
-          </Route>
-          <Route to='albums/:id'>
-            <ViewAlbum />
-          </Route>
-          <Route to='albums/:id/edit'>
-            <EditAlbum />
-          </Route>
-          <Route to='/photos/new'>
-            <AddPhoto />
-          </Route>
-          <Route to='/photos/:id'>
-           <ViewPhoto />
-          </Route>
-          <Route to='/photos/:id/edit'>
-           <EditPhoto />
-          </Route>
-          <Route>
-            <p className="page-does-not-exist">Sorry, this page does not exist.</p>
-          </Route>
-        </Switch>
+      <Switch>
+        <Route path="/signup">
+          <SignupFormPage />
+        </Route>
+        <Route path='/'>
+          <AllPhotos />
+        </Route>
+        <Route to='/profile'>
+          <MyPhotos />
+        </Route>
+        <Route to='albums'>
+          <AllAlbums />
+        </Route>
+        <Route to='albums/new'>
+          <AddAlbum />
+        </Route>
+        <Route to='albums/:id'>
+          <ViewAlbum />
+        </Route>
+        <Route to='albums/:id/edit'>
+          <EditAlbum />
+        </Route>
+        <Route to='/photos/new'>
+          <AddPhoto />
+        </Route>
+        <Route to='/photos/:id'>
+          <ViewPhoto />
+        </Route>
+        <Route to='/photos/:id/edit'>
+          <EditPhoto />
+        </Route>
+        <Route>
+          <p className="page-does-not-exist">Sorry, this page does not exist.</p>
+        </Route>
+      </Switch>
       <Footer />
     </>
   );

@@ -57,7 +57,7 @@ export const uploadingPhoto = uplaodPhoto => async dispatch => {
   }
 };
 
-export const editingPhoto = photo => dispatch => {
+export const editingPhoto = photo => async dispatch => {
   const res = await csrfFetch(`/api/photos/${photo.id}`, {
     method: 'PATCH',
     body: JSON.stringify(photo)
@@ -70,7 +70,7 @@ export const editingPhoto = photo => dispatch => {
   }
 };
 
-export const deletingPhoto = photo => dispatch => {
+export const deletingPhoto = photo => async dispatch => {
   const res = await csrfFetch(`/api/photos/${photo}`, {
     method: 'DELETE'
   })

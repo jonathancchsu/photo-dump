@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { uploadingAlbum } from '../../../store/album';
 import * as sessionActions from '../../../store/session';
@@ -11,6 +11,7 @@ function AddAlbum () {
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const [name, setName] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser());

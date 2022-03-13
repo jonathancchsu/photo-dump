@@ -53,14 +53,14 @@ export const uploadingAlbum = (payload) => async dispatch => {
           body: JSON.stringify(payload)
       })
       if (res.ok) {
-          const newAlbum = await response.json();
+          const newAlbum = await res.json();
           dispatch(makeAlbum(newAlbum));
           return newAlbum;
       }
   }
 };
 
-export const editingAlbum = album => dispatch => {
+export const editingAlbum = album => async dispatch => {
   const res = await csrfFetch(`/api/albums/${album.id}`, {
     method: 'PATCH',
     body: JSON.stringify(album)
@@ -73,7 +73,7 @@ export const editingAlbum = album => dispatch => {
   }
 };
 
-export const deletingAlbum = album => dispatch => {
+export const deletingAlbum = album => async dispatch => {
   const res = await csrfFetch(`/api/albums/${album}`, {
     method: 'DELETE'
   })
