@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 
 import { uploadPhoto } from '../../../store/photos';
-import { addPhotosInAlbum, addPhotosInAlbum } from '../../../store/photosInAlbum';
-import AllAlbums from '../../AlbumActions/AllAlbums';
+import { addPhotosInAlbum } from '../../../store/photosInAlbum';
 
 import './AddPhoto.css';
 
@@ -47,7 +46,7 @@ function AddPhoto ({ albums }) {
         photo_id: image.id
       }
 
-      const addPhotosInAlbum = await dispatch(addPhotosInAlbum(photosInAlbumPayload));
+      const addingPhotosInAlbum = await dispatch(addPhotosInAlbum(photosInAlbumPayload));
     }
 
     if (image.errors) {
