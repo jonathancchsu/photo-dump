@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Link, useHistory } from 'react-router-dom';
 
@@ -34,9 +33,6 @@ function Header () {
   return (
     <>
       <div className='header-div'>
-        <div className='logo-div'>
-          <img className='logo-pic' src={``}/>
-        </div>
         <div className='navbar-div'>
           <NavLink className='nav-link' to='/'>Explore</NavLink>
           <NavLink className='nav-link' to='/my-photos'>My Photos</NavLink>

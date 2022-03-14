@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import * as sessionActions from '../../../store/session';
@@ -18,7 +18,7 @@ function ViewAlbum() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser());
     dispatch(getAllAlbums());
-  }, []);
+  }, [dispatch]);
 
   const handleDelete = (e) => {
     e.preventDefault();
@@ -66,7 +66,7 @@ function ViewAlbum() {
           return (
             <div key={el.Photo.id}>
               <Link to={`/photos/${el.Photo.id}`}>
-                <img className='photo-in-album' src={el.Photo.photo_url} />
+                <img className='photo-in-album' alt='' src={el.Photo.photo_url} />
               </Link>
             </div>
           )

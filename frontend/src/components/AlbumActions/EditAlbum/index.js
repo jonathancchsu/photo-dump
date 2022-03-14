@@ -21,7 +21,7 @@ function EditAlbum() {
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
-    dispatch(getAllAlbums(id));
+    dispatch(getAllAlbums());
     dispatch(sessionActions.restoreUser());
   }, [dispatch]);
 

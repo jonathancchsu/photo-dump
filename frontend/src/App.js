@@ -36,7 +36,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getAllAlbums(id))
-  }, [sessionUser]);
+  }, [dispatch]);
 
   if (!sessionUser) {
     return (

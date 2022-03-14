@@ -22,8 +22,8 @@ router.get('/users/:id(\\d+)', asyncHandler(async (req, res) => {
 router.post('/', asyncHandler(async (req, res) => {
   const { name, user_id } = req.body;
   const album = await Album.create({
-      name,
-      user_id
+    name,
+    user_id
   })
 
   res.json(album);
@@ -34,9 +34,9 @@ router.patch('/:id', asyncHandler(async (req, res) => {
   const { name } = req.body;
 
   if (album) {
-      await album.update({
-          name
-      });
+    await album.update({
+      name
+    });
   }
   const updatedAlbum = await Album.findByPk(req.params.id);
   return res.json(updatedAlbum);

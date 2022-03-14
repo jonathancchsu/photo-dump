@@ -12,7 +12,7 @@ function AllAlbums ({ albums }) {
             {
               album?.PhotosInAlbum?.length ?
               <Link className='album' to={`/albums/${album.id}`}>
-                <img className='album-cover' src={album.PhotosInAlbum[0].Photo.photo_url} />
+                <img className='album-cover' alt='album-cover' src={album.PhotosInAlbum[0].Photo.photo_url} />
               </Link>
               :
               <Link className='album-cover' to={`/albums/${album.id}`}>
