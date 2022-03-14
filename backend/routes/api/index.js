@@ -3,14 +3,12 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const userRouter = require('./users.js');
 const photoRouter = require('./photos');
-const albumRouter = require('./albums');
-const photosInAlbumRouter = require('./photosInAlbum');
+const commentsRouter = require('./comments');
 
 router.use('/session', sessionRouter);
 router.use('/users', userRouter);
 router.use('/photos', photoRouter);
-router.use('/albums', albumRouter);
-router.use('/photosInAlbum', photosInAlbumRouter);
+router.use('/comments', commentsRouter);
 
 
 // testing api from frontend

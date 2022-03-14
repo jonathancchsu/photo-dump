@@ -29,46 +29,53 @@ function App() {
     id = sessionUser.id;
   }
 
-  if (!sessionUser) {
-    return (
-      <Switch>
-        <Route exact path = '/'>
-          <SplashPage />
-        </Route>
-        <Route path='/login'>
-          <LoginFormPage />
-        </Route>
-        <Route path='/signup'>
-          <SignupFormPage />
-        </Route>
-        <Route>
-          <p className="does-not-exist">Sorry. This page does not exist.</p>
-        </Route>
-      </Switch>
-    )
-  }
+  // if (!sessionUser) {
+  //   return (
+  //     <Switch>
+  //       <Route exact path = '/'>
+  //         <SplashPage />
+  //       </Route>
+  //       <Route path='/login'>
+  //         <LoginFormPage />
+  //       </Route>
+  //       <Route path='/signup'>
+  //         <SignupFormPage />
+  //       </Route>
+  //       <Route>
+  //         <p className="does-not-exist">Sorry. This page does not exist.</p>
+  //       </Route>
+  //     </Switch>
+  //   )
+  // }
 
-  return isLoaded && (
+  return (
     <>
-      <Header />
-        <Switch>
-          <Route exact path='/'>
-            <Explore />
-          </Route>
-          <Route exact path='/photos/new'>
-            <AddPhoto />
-          </Route>
-          <Route exact path='/photos/:id'>
-            <ViewPhoto />
-          </Route>
-          <Route exact path='/photos/:id/edit'>
-            <EditPhoto />
-          </Route>
-          <Route>
-            <p className="page-does-not-exist">Sorry, this page does not exist.</p>
-          </Route>
-        </Switch>
-      <Footer />
+    {isLoaded && (
+      <>
+        <Header />
+          <Switch>
+            <Route exact path='/'>
+              {sessionUser ?
+                <Explore /> :
+                <SplashPage />
+              }
+            </Route>
+            <Route exact path='/photos/new'>
+              <AddPhoto />
+            </Route>
+            <Route exact path='/photos/:id'>
+              <ViewPhoto />
+            </Route>
+            <Route exact path='/photos/:id/edit'>
+              <EditPhoto />
+            </Route>
+            <Route>
+              <p className="page-does-not-exist">Sorry, this page does not exist.</p>
+            </Route>
+          </Switch>
+        <Footer />
+      </>
+      )}
     </>
   )
 }
