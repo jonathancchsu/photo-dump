@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addComment } from '../../../store/comments';
 
+import './PostComment.css';
+
 
 function PostComment() {
     const { photo_id } = useParams();

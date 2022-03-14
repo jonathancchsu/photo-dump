@@ -104,15 +104,15 @@ function ViewPhoto () {
           {comments?.map((comment) => (
             <div className="singleComment">
               <div>
-                {getUsername(comment?.user_id)} said: {comment.comments}
+                {getUsername(comment?.user_id)}: {comment.comments}
               </div>
               <div className="editDeleteContain">
                 {sessionUser.id === comment?.user_id ?
-                  <NavLink className="commentEdit" exact to={`/photos/${id}/${comment.id}/edit`}>
+                  <NavLink className="editDelete" exact to={`/photos/${id}/${comment.id}/edit`}>
                       Edit
                   </NavLink> : null}
                 {sessionUser.id === comment?.user_id ?
-                  <Link to={`/photos/${id}`} className="commentDelete" onClick={() => onDeleteComment(comment.id)}>
+                  <Link to={`/photos/${id}`} className="editDelete" onClick={() => onDeleteComment(comment.id)}>
                       Delete
                   </Link> : null}
               </div>

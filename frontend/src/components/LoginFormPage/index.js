@@ -49,6 +49,7 @@ function LoginFormPage() {
         <div className="form-label">
           <label>
             <input
+              className="form-label"
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
@@ -60,6 +61,7 @@ function LoginFormPage() {
         <div className="form-label">
           <label>
             <input
+            className="form-label"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -76,7 +78,7 @@ function LoginFormPage() {
         </div>
         <div className="sign-up-container">
           <div className="sign-up-title">Sign up for Photo-Dump!</div>
-          <Link className="sign-up-link" to='/signup'>Sign Up here.</Link>
+          <Link className="sign-up-title" to='/signup'>Sign Up here.</Link>
         </div>
       </form>
     </div>

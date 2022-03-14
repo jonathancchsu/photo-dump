@@ -82,11 +82,11 @@ function EditPhoto() {
           </ul>
         </div>
         <form className='edit-form' onSubmit={handleEdits}>
-          <p className='edit-title'>Edit Your Photo</p>
+          <p className='title'>Edit Your Photo</p>
           <div className='label-container'>
             <label>
               <input
-                className='edit-label'
+                className='form-label'
                 type='text'
                 value={title}
                 onChange={ e => setTitle(e.target.value)}
@@ -96,7 +96,7 @@ function EditPhoto() {
             <div className='label-container'>
               <label>
                 <textarea
-                  className='edit-label'
+                  className='form-label'
                   type='text'
                   rows='5'
                   value={caption}
@@ -105,10 +105,10 @@ function EditPhoto() {
             </label>
             </div>
             <div className='edit-photo'>
-              <button type='submit'>Update</button>
+              <button className='btn' type='submit'>Update</button>
             </div>
             <div className='edit-photo'>
-              <Link className='edit-cancel' to={`/photos/${editPhoto.id}`}>Cancel</Link>
+              <Link className='btn' to={`/photos/${editPhoto.id}`}>Cancel</Link>
             </div>
         </form>
       </div>
