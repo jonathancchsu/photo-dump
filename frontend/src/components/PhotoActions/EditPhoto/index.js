@@ -25,7 +25,7 @@ function EditPhoto() {
     const [title, setTitle] = useState(editPhoto?.title);
     const [caption, setCaption] = useState(editPhoto?.caption);
     const [errors, setErrors] = useState([]);
-
+    // console.log('=================', editPhoto?.title)
     useEffect(() => {
       let errors = [];
       if (!title) {

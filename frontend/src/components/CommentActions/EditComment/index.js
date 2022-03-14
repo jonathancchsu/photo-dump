@@ -6,37 +6,43 @@ import './EditComment.css';
 
 function EditComment() {
     const dispatch = useDispatch();
-    const { id, comment_id } = useParams();
-    const photo = useSelector(state => state.photoState);
+    const { photo_id, comment_id } = useParams();
+    // const photo = useSelector(state => state.photoState);
     const sessionUser = useSelector(state => state.session.user);
     const comment = useSelector(state => state.commentState);
-    const [updateThisComment, setUpdateThisComment] = useState(comment[comment_id].comments);
+    const [updateThisComment, setUpdateThisComment] = useState(comment[comment_id]?.comments);
+    const [errors, setErrors] = useState([]);
     const history = useHistory();
-
+    console.log('------------',comment[comment_id].comments)
     const handleSubmit = e => {
-        // e.preventDefault();
+        e.preventDefault();
 
         const updatedComment = {
             id: comment_id,
-            user_id: sessionUser.id,
-            photo_id: photo[id].id,
-            comment: updateThisComment
+            uuser_id: sessionUser.id,
+            photo_id: photo_id,
+            comments: updateThisComment
         }
-        // console.log('-----------', updatedComment.id)
 
-        // if (updatedComment.comment) {
+        if (updateThisComment) {
+            history.push(`/photos/${photo_id}`)
             dispatch(updateComment(updatedComment));
-            history.push(`/photos/${id}`)
-        // }
+            return;
+        }
+        return setErrors(['Please provide a comment.'])
     }
 
     const onClick = () => {
-        history.push(`/photos/${id}`)
+        history.push(`/photos/${photo_id}`)
     }
 
 
     return (
         <div className="postContainer">
+            <ul>
+                {errors.map((error, idx) =>
+                <li id="error" key={idx}>{error}</li>)}
+            </ul>
             <form className="postInputs" onSubmit={handleSubmit}>
                 <textarea
                     value={updateThisComment}

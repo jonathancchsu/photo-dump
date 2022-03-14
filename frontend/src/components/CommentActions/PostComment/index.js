@@ -19,7 +19,7 @@ function PostComment() {
             photo_id: id,
             comments: newComment
         }
-        console.log("123131233",newComments)
+        // console.log("123131233",newComments)
         if (newComment) {
             dispatch(addComment(newComments))
             setNewComment('')
@@ -45,7 +45,7 @@ function PostComment() {
                     className="commentInput"
                 ></textarea>
                 <div className="postButtonContainer">
-                    <button className="postButton" type="submit">Submit</button>
+                    <button className="btn" type="submit">Submit</button>
                 </div>
             </form>
         </div>

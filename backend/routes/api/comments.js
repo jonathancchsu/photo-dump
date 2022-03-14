@@ -8,7 +8,7 @@ const { Comment } = require('../../db/models');
 const router = express.Router();
 
 const validateCommentPost = [
-    check('comment')
+    check('comments')
         .exists({checkFalsy: true})
         .withMessage('Please provide a comment.'),
     handleValidationErrors
@@ -33,15 +33,16 @@ router.post('/', asyncHandler(async (req, res) => {
 router.put('/:photo_id/:comment_id',
 validateCommentPost,
 asyncHandler(async (req, res) => {
-    const commentId = parseInt(req.params.comment_id)
-    const { comment } = req.body
-    const newComment = await Comment.findByPk(commentId)
+    const comment_id = parseInt(req.params.comment_id)
+    const { comments } = req.body
+    const newComment = await Comment.findByPk(comment_id)
     if (newComment) {
         await newComment.update({
-            comment: comment
+            comments: comments
         })
     }
-    return res.json(newComment);
+    const updatedCom = await Comment.findByPk(comment_id)
+    return res.json(updatedCom);
 }))
 
 router.delete('/:photo_id/:comment_id',

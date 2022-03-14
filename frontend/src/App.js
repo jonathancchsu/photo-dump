@@ -56,7 +56,7 @@ function App() {
             <Route exact path='/photos/:id/edit'>
               <EditPhoto />
             </Route>
-            <Route exact path='/photos/:id/:comment_id/edit'>
+            <Route exact path='/photos/:photo_id/:comment_id/edit'>
             <EditComment />
           </Route>
             <Route>
