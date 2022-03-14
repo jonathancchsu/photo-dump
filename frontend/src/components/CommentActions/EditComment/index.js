@@ -22,7 +22,7 @@ function EditComment() {
             photo_id: photo[id].id,
             comment: updateThisComment
         }
-        console.log('-----------', updatedComment.id)
+        // console.log('-----------', updatedComment.id)
 
         // if (updatedComment.comment) {
             dispatch(updateComment(updatedComment));

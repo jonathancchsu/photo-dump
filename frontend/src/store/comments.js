@@ -60,14 +60,13 @@ export const deleteComment = (photo_id, comment_id) => async dispatch => {
 }
 
 export const updateComment = updatedComment => async dispatch => {
-    const res = await csrfFetch(`/api/comments/${updatedComment.photo_id}/${updatedComment.id}`, {
+    const req = await csrfFetch(`/api/comments/${updatedComment.photo_id}/${updatedComment.id}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(updatedComment)
     })
 
-
-    const updated = await res.json();
+    const updated = await req.json();
     dispatch(updateOne(updated))
     return updated
 }

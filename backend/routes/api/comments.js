@@ -33,12 +33,12 @@ router.post('/', asyncHandler(async (req, res) => {
 router.put('/:photo_id/:comment_id',
 validateCommentPost,
 asyncHandler(async (req, res) => {
-    const comment_id = parseInt(req.params.comment_id)
+    const commentId = parseInt(req.params.comment_id)
     const { comment } = req.body
-    const newComment = await Comment.findByPk(comment_id)
+    const newComment = await Comment.findByPk(commentId)
     if (newComment) {
         await newComment.update({
-            comments: comment
+            comment: comment
         })
     }
     return res.json(newComment);
