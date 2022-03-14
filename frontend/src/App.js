@@ -15,7 +15,6 @@ import Header from "./components/Header";
 import AddPhoto from "./components/PhotoActions/AddPhoto";
 import Explore from "./components/PhotoActions/Explore";
 import EditPhoto from "./components/PhotoActions/EditPhoto";
-import MyPhotos from "./components/PhotoActions/MyPhotos";
 import ViewPhoto from "./components/PhotoActions/ViewPhoto";
 import SplashPage from "./components/SplashPage";
 import { getAllAlbums } from "./store/album";
@@ -34,9 +33,9 @@ function App() {
     id = sessionUser.id;
   }
 
-  useEffect(() => {
-    dispatch(getAllAlbums(id))
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getAllAlbums(id))
+  // }, [dispatch]);
 
   if (!sessionUser) {
     return (
@@ -64,9 +63,6 @@ function App() {
           <Route exact path='/'>
             <Explore />
           </Route>
-          <Route exact path='/profile'>
-            <MyPhotos />
-          </Route>
           <Route exact path='/albums'>
             <AllAlbums />
           </Route>
@@ -88,19 +84,13 @@ function App() {
           <Route exact path='/photos/:id/edit'>
             <EditPhoto />
           </Route>
-          <Route path='/login'>
-            <Redirect to='/' />
-          </Route>
-          <Route path='/signup'>
-            <Redirect to='/' />
-          </Route>
           <Route>
             <p className="page-does-not-exist">Sorry, this page does not exist.</p>
           </Route>
         </Switch>
       <Footer />
     </>
-  );
+  )
 }
 
 export default App;

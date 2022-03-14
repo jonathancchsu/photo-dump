@@ -1,8 +1,21 @@
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllAlbums } from '../../../store/album';
+import { useEffect } from 'react';
+
+import * as sessionActions from '../../../store/session';
 
 import './AllAlbums.css';
 
-function AllAlbums ({ albums }) {
+function AllAlbums () {
+  const dispatch = useDispatch();
+  const albums = useSelector(state => state.albumState.entries);
+  
+  useEffect(() => {
+    dispatch(getAllAlbums());
+    dispatch(sessionActions.restoreUser());
+  }, []);
+
   return (
     <div className='all-albums-div'>
       <title className='album-title'>Albums</title>

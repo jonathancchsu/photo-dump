@@ -25,7 +25,7 @@ function Explore () {
         {photos?.map(photo => (
           <div className='photo-div' key={photo.id}>
             <Link to={`/photos/${photo.id}`}>
-              <img className='photos' alt='' scr={photo.photo_url} />
+              <img className='photos' alt='' src={photo.photo_url} />
             </Link>
             <Link className='photo-user' to={`/photos/${photo.id}`}>
               <p>{photo?.title}</p>

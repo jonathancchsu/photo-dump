@@ -4,6 +4,9 @@ import { useHistory, Link } from 'react-router-dom';
 
 import { uploadPhoto } from '../../../store/photos';
 import { addPhotosInAlbum } from '../../../store/photosInAlbum';
+import { getAllAlbums } from '../../../store/album';
+
+import * as sessionActions from '../../../store/session';
 
 import './AddPhoto.css';
 
@@ -26,6 +29,11 @@ function AddPhoto () {
     if (sessionUser.user) {
       setUser_id(sessionUser.user.id);
     }
+  }, []);
+
+  useEffect(() => {
+    dispatch(getAllAlbums());
+    dispatch(sessionActions.restoreUser());
   }, []);
 
   const uploading = async (e) => {
@@ -74,7 +82,7 @@ function AddPhoto () {
             <input
               className='upload-label'
               type='text'
-              value='title'
+              value={title}
               onChange = {e => setTitle(e.target.value)}
               placeholder='Title'
               required
@@ -86,7 +94,7 @@ function AddPhoto () {
             <input
               className='upload-label'
               type='text'
-              value='photo_url'
+              value={photo_url}
               onChange={e => setPhoto_url(e.target.value)}
               placeholder='Photo URL'
               required
@@ -98,7 +106,7 @@ function AddPhoto () {
             <input
               className='upload-label'
               type='text'
-              value='caption'
+              value={caption}
               onChange={e => setCaption(e.target.value)}
               placeholder='Caption'
               required
