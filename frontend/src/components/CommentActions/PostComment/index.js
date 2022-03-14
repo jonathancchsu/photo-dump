@@ -11,16 +11,16 @@ function PostComment() {
     const [newComment, setNewComment] = useState("");
     const [errors, setErrors] = useState([]);
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
 
         const newComments = {
-            userId: sessionUser.id,
+            user_id: sessionUser.id,
             photo_id: photo_id,
-            comment: newComment
+            comments: newComment
         }
         if (newComment) {
-            dispatch(addComment(newComments))
+            const comment = await dispatch(addComment(newComments))
             setNewComment('')
             return;
         }

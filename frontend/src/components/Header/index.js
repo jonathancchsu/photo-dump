@@ -22,8 +22,9 @@ function Header () {
       <>
         <div className='header-div'>
           <div className='user-navbar-div'>
-            <Link className='login' to='/login'>Log In</Link>
-            <Link className='signup' to='/signup'>Sign Up</Link>
+            <Link className='nav-link' to='/'>Home</Link>
+            <Link className='nav-link' to='/login'>Log In</Link>
+            <Link className='nav-link' to='/signup'>Sign Up</Link>
           </div>
         </div>
       </>
@@ -35,9 +36,9 @@ function Header () {
       <div className='header-div'>
         <div className='navbar-div'>
           <NavLink className='nav-link' to='/'>Explore</NavLink>
+          <Link className='nav-link' to='/photos/new'>Upload</Link>
         </div>
         <div className='user-navbar-div'>
-          <Link className='upload-btn' to='/photos/new'>Upload</Link>
           <form className='logout' onSubmit={logout}>
             <button className='logout-btn' type='submit'>logout</button>
           </form>

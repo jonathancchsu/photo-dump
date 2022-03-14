@@ -29,25 +29,6 @@ function App() {
     id = sessionUser.id;
   }
 
-  // if (!sessionUser) {
-  //   return (
-  //     <Switch>
-  //       <Route exact path = '/'>
-  //         <SplashPage />
-  //       </Route>
-  //       <Route path='/login'>
-  //         <LoginFormPage />
-  //       </Route>
-  //       <Route path='/signup'>
-  //         <SignupFormPage />
-  //       </Route>
-  //       <Route>
-  //         <p className="does-not-exist">Sorry. This page does not exist.</p>
-  //       </Route>
-  //     </Switch>
-  //   )
-  // }
-
   return (
     <>
     {isLoaded && (
@@ -61,16 +42,10 @@ function App() {
               }
             </Route>
             <Route path='/login'>
-              {sessionUser ?
-                <LoginFormPage /> :
-                <Redirect to='/' />
-              }
+              <LoginFormPage />
             </Route>
             <Route path='/signup'>
-              {sessionUser ?
-                <SignupFormPage /> :
-                <Redirect to='/' />
-              }
+              <SignupFormPage />
             </Route>
             <Route exact path='/photos/new'>
               <AddPhoto />

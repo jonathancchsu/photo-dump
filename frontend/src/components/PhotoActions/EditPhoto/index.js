@@ -56,7 +56,7 @@ function EditPhoto() {
         caption
       }
 
-      const updateThisPhoto = await dispatch(editingPhoto(payload));
+      const updatedPhoto = await dispatch(editingPhoto(payload));
 
       history.push(`/photos/${id}`);
     }
@@ -76,9 +76,11 @@ function EditPhoto() {
 
     return (
       <div className='edit-form-main'>
-        <ul>
-          {errors.map((error, i) => <li key={i}>{error}</li>)}
-        </ul>
+        <div className='errors'>
+          <ul>
+            {errors.map((error, i) => <li key={i}>{error}</li>)}
+          </ul>
+        </div>
         <form className='edit-form' onSubmit={handleEdits}>
           <p className='edit-title'>Edit Your Photo</p>
           <div className='label-container'>

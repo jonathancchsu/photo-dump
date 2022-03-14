@@ -23,13 +23,13 @@ function Explore () {
     </div>
       <div className='all-photos-div'>
         {photos?.map(photo => (
-          <div className='photo-div' key={photo.id}>
+          <div className='photos-div' key={photo.id}>
             <Link to={`/photos/${photo.id}`}>
               <img className='photos' alt='' src={photo.photo_url} />
             </Link>
             <Link className='photo-user' to={`/photos/${photo.id}`}>
-              <p>{photo?.title}</p>
-              <p>by {photo?.User?.username}</p>
+              <b className='title'>{photo?.title}</b>
+              <b className='title'>by {photo?.User?.username}</b>
             </Link>
           </div>
         ))}

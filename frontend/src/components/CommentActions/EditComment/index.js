@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateComment } from '../../../store/comments';
 import { useHistory, useParams } from 'react-router-dom';
+
+// import * as sessionActions from '../../../store/session'
 import './EditComment.css';
 
 function EditComment() {
     const dispatch = useDispatch();
-    const { photo_id, comment_id } = useParams();
-    const photo = useSelector(state => state.photoState);
+    const { id, comment_id } = useParams();
+    // const photo = useSelector(state => state.photoState);
     const sessionUser = useSelector(state => state.session.user);
     const comment = useSelector(state => state.commentState);
     const [updateThisComment, setUpdateThisComment] = useState(comment[comment_id].comment);
@@ -19,22 +21,27 @@ function EditComment() {
       }
     })
 
-    const handleSubmit = e => {
-      e.preventDefault();
+    // useEffect(() => {
+    //   dispatch(sessionActions.restoreUser());
+    // }, [dispatch])
+
+    const handleSubmit = async e => {
+      // e.preventDefault();
 
       const updatedComment = {
           id: comment_id,
-          userId: sessionUser.id,
-          photo_id: photo[photo_id].id,
-          comment: comment ? updateThisComment : null
+          user_id: sessionUser.id,
+          photo_id: id,
+          comments: comment ? updateThisComment : null
       }
 
-      dispatch(updateComment(updatedComment));
-      history.push(`/photos/${photo_id}`);
+      const updated = await dispatch(updateComment(updatedComment));
+
+      history.push(`/photos/${id}`);
     }
 
     const onClick = () => {
-        history.push(`/photos/${photo_id}`)
+        history.push(`/photos/${id}`)
     }
 
 

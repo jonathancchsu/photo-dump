@@ -110,11 +110,11 @@ function AddPhoto () {
             />
           </label>
         </div>
-        <div className='upload-photo-btn'>
-          <button type='submit'>Upload</button>
+        <div className='btn-container'>
+          <button className='upload-photo-btn' type='submit'>Upload</button>
         </div>
         <div className='uplaod-photo-btn'>
-          <Link className='cancel-upload' to='/'>Cancel</Link>
+          <Link className='upload-photo-btn' to='/'>Cancel</Link>
         </div>
       </form>
     </div>

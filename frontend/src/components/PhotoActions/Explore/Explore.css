@@ -1,4 +1,46 @@
+.title-div {
+  max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+}
+
+.all-photos-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50%;
+  max-height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  background-color: white;
+  padding: 30px;
+  font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+}
+
 .photos {
-  height: auto;
-  width: auto;
+  max-width: 90%;
+  max-height: 90%;
+  padding: 40px;
+}
+
+.title {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+}
+
+.photos-div {
+  border-color: black;
+  border-style: solid;
+  padding: 20px;
+  margin: 20px;
 }

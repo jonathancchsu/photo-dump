@@ -77,22 +77,24 @@ function ViewPhoto () {
         <h1 className='photo-title'>{selectedPhoto.title}</h1>
         <p className='description'>Caption: {selectedPhoto.caption}</p>
         <p className='taken-by'>Taken By: {selectedPhoto?.User?.username}</p>
-        {selectedPhoto?.user_id === sessionUser.id ?
-          <button className='delete-btn' onClick={handleDelete} type='submit'>
-            Delete
-          </button>
-          :
-          <></>
-        }
-        {selectedPhoto?.user_id === sessionUser.id ?
-          <Link to={`/photos/${selectedPhoto.id}/edit`}>
-            <button className='edit-btn' type='submit'>
-              Edit
+        <div className='btn-container'>
+          {selectedPhoto?.user_id === sessionUser.id ?
+            <button className='btn' onClick={handleDelete} type='submit'>
+              Delete
             </button>
-          </Link>
-          :
-          <></>
-        }
+            :
+            <></>
+          }
+          {selectedPhoto?.user_id === sessionUser.id ?
+            <Link to={`/photos/${selectedPhoto.id}/edit`}>
+              <button className='btn' type='submit'>
+                Edit
+              </button>
+            </Link>
+            :
+            <></>
+          }
+        </div>
       </div>
       <div>
           <PostComment />
