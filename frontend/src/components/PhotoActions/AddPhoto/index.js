@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 
-import { uploadPhoto } from '../../../store/photos';
+import { uploadingPhoto } from '../../../store/photos';
 import { addPhotosInAlbum } from '../../../store/photosInAlbum';
 import { getAllAlbums } from '../../../store/album';
 
@@ -19,7 +19,7 @@ function AddPhoto () {
   const [title, setTitle] = useState('');
   const [photo_url, setPhoto_url] = useState('');
   const [caption, setCaption] = useState('');
-  const [album_id, setAlbum_id] = useState('');
+  // const [album_id, setAlbum_id] = useState('');
   const [errors, setErrors] = useState([]);
 
   useEffect (() => {
@@ -31,10 +31,10 @@ function AddPhoto () {
     }
   }, []);
 
-  useEffect(() => {
-    dispatch(getAllAlbums());
-    dispatch(sessionActions.restoreUser());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getAllAlbums());
+  //   dispatch(sessionActions.restoreUser());
+  // }, []);
 
   const uploading = async (e) => {
     e.preventDefault();
@@ -48,15 +48,16 @@ function AddPhoto () {
 
     let errs = [];
 
-    const image = await dispatch(uploadPhoto(payload));
-    if (image && album_id) {
-      let photosInAlbumPayload = {
-        album_id: +album_id,
-        photo_id: image.id
-      }
+    const image = await dispatch(uploadingPhoto(payload));
+    console.log('image', image)
+    // if (image && album_id) {
+    //   let photosInAlbumPayload = {
+    //     album_id: +album_id,
+    //     photo_id: image.id
+    //   }
 
-      const addingPhotosInAlbum = await dispatch(addPhotosInAlbum(photosInAlbumPayload));
-    }
+      // const addingPhotosInAlbum = await dispatch(addPhotosInAlbum(photosInAlbumPayload));
+    // }
 
     if (image.errors) {
       const errorList = Object.values(image.errors);
@@ -64,7 +65,7 @@ function AddPhoto () {
       errorArr.map(error => errs.push(error.msg));
       setErrors(errs);
     } else {
-      history.push(`/photos/${image.id}`);
+      history.push(`/`);
     }
   }
 
@@ -113,7 +114,7 @@ function AddPhoto () {
             />
           </label>
         </div>
-        {albums.length ?
+        {/* {albums.length ?
           <div className='upload-form-labels'>
             <select className='select-album' value={album_id} onChange={e => setAlbum_id(e.target.value)}>
               <option className='upload-label album-option' value=''>Choose an album</option>
@@ -126,7 +127,7 @@ function AddPhoto () {
           </div>
           :
           <></>
-        }
+        } */}
         <div className='upload-photo-btn'>
           <button type='submit'>Upload</button>
         </div>

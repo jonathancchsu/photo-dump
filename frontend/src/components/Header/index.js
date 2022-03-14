@@ -35,7 +35,6 @@ function Header () {
       <div className='header-div'>
         <div className='navbar-div'>
           <NavLink className='nav-link' to='/'>Explore</NavLink>
-          <NavLink className='nav-link' to='/albums'>Albums</NavLink>
         </div>
         <div className='user-navbar-div'>
           <Link className='upload-btn' to='/photos/new'>Upload</Link>

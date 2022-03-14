@@ -6,10 +6,6 @@ import * as sessionActions from "./store/session";
 
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
-import AddAlbum from "./components/AlbumActions/AddAlbum";
-import AllAlbums from "./components/AlbumActions/AllAlbums";
-import EditAlbum from "./components/AlbumActions/EditAlbum";
-import ViewAlbum from "./components/AlbumActions/ViewAlbum";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import AddPhoto from "./components/PhotoActions/AddPhoto";
@@ -17,7 +13,7 @@ import Explore from "./components/PhotoActions/Explore";
 import EditPhoto from "./components/PhotoActions/EditPhoto";
 import ViewPhoto from "./components/PhotoActions/ViewPhoto";
 import SplashPage from "./components/SplashPage";
-import { getAllAlbums } from "./store/album";
+import { getAllAlbums } from "../src/store/album";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,10 +28,6 @@ function App() {
   if (sessionUser) {
     id = sessionUser.id;
   }
-
-  // useEffect(() => {
-  //   dispatch(getAllAlbums(id))
-  // }, [dispatch]);
 
   if (!sessionUser) {
     return (
@@ -62,18 +54,6 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Explore />
-          </Route>
-          <Route exact path='/albums'>
-            <AllAlbums />
-          </Route>
-          <Route exact path='/albums/new'>
-            <AddAlbum />
-          </Route>
-          <Route exact path='/albums/:id'>
-            <ViewAlbum />
-          </Route>
-          <Route exact path='/albums/:id/edit'>
-            <EditAlbum />
           </Route>
           <Route exact path='/photos/new'>
             <AddPhoto />

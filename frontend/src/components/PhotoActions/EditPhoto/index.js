@@ -9,14 +9,13 @@ import { editingPhoto } from '../../../store/photos'
 
 import './EditPhoto.css'
 
-function EditPhoto() {
+function EditPhoto({ albums }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
 
     const sessionUser = useSelector(state => state.session.user);
     const allPhotos = useSelector(state => state.photoState.entries);
-    const albums = useSelector(state => state.albumState.entries);
     const editPhoto = allPhotos.find(one => one.id === +id);
 
     useEffect(() => {
@@ -92,7 +91,7 @@ function EditPhoto() {
           {errors.map((error, i) => <li key={i}>{error}</li>)}
         </ul>
         <form className='edit-form' onSubmit={handleEdits}>
-          <p className='edit-title'>Edit Your Chonkr</p>
+          <p className='edit-title'>Edit Your Photo</p>
           <div className='label-container'>
             <label>
               <input

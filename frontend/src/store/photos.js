@@ -12,7 +12,7 @@ export const fetchPhotos = photos => {
   }
 };
 
-export const uploadPhoto = payload => {
+export const uploadedPhoto = payload => {
   return {
     type: UPLOAD_PHOTO,
     payload
@@ -44,7 +44,7 @@ export const getAllPhotos = () => async dispatch => {
   }
 };
 
-export const uploadingPhoto = uplaodPhoto => async dispatch => {
+export const uploadingPhoto = uploadPhoto => async dispatch => {
   const res = await csrfFetch('/api/photos', {
     method: 'POST',
     body: JSON.stringify(uploadPhoto)
@@ -52,7 +52,7 @@ export const uploadingPhoto = uplaodPhoto => async dispatch => {
 
   if (res.ok) {
     const newPhoto = await res.json();
-    dispatch(uploadPhoto(uplaodPhoto));
+    dispatch(uploadedPhoto(uploadPhoto));
     return newPhoto;
   }
 };
@@ -71,7 +71,7 @@ export const editingPhoto = photo => async dispatch => {
 };
 
 export const deletingPhoto = photo => async dispatch => {
-  const res = await csrfFetch(`/api/photos/${photo}`, {
+  const res = await csrfFetch(`/api/photos/${photo.id}`, {
     method: 'DELETE'
   })
 

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import * as sessionActions from '../../../store/session';
 
-import { getAllPhotos, deletePhoto } from '../../../store/photos';
+import { getAllPhotos, deletingPhoto } from '../../../store/photos';
 
 import './ViewPhoto.css';
 
@@ -24,7 +24,7 @@ function ViewPhoto () {
   const deleting = async (e) => {
     e.preventDefault();
 
-    const deleted = await dispatch(deletePhoto(selectedPhoto.id));
+    const deleted = await dispatch(deletingPhoto(selectedPhoto.id));
     history.push('/');
   }
 
