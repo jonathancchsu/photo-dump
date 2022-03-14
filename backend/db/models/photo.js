@@ -2,18 +2,16 @@
 module.exports = (sequelize, DataTypes) => {
   const Photo = sequelize.define('Photo', {
     title: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(50),
       allowNull: false,
       validate: {
         len: [1, 50]
       }
     },
     caption: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
-      validate: {
-        len: [10, 1000]
-      }
+      default: ''
     },
     photo_url: {
       allowNull: false,

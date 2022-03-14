@@ -1,8 +1,8 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { check, validationResult } = require('express-validator');
 
-const { check, validationResult } = require('express-validator')
-const { Photo, User } = require('../../db/models')
+const { Photo, User } = require('../../db/models');
 
 const router = express.Router();
 
@@ -18,7 +18,7 @@ const photoValidation = [
     check('caption')
         .exists({ checkFalsy: true})
         .isLength({min: 1})
-        .withMessage('Give a caption for your photo!'),
+        .withMessage('Give a caption for your photo.'),
 ]
 
 router.get('/', asyncHandler(async (req, res) => {
@@ -43,11 +43,6 @@ router.post('/', photoValidation, asyncHandler(async (req, res, next) => {
         res.json(photo);
     }
     else res.json(validatorErrors);
-}))
-
-router.get('/:id', asyncHandler(async (req, res) => {
-  const photo = await Photo.findByPk(req.params.id);
-  res.json(photo);
 }))
 
 router.patch('/:id', asyncHandler(async (req, res) => {

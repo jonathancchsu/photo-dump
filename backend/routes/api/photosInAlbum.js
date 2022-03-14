@@ -15,7 +15,7 @@ router.post('/', asyncHandler(async (req, res) => {
     }
   })
 
-  if (data.length < 0) {
+  if (!data.length) {
       const relation = await PhotosInAlbum.create({
           photos_id,
           album_id
@@ -24,7 +24,7 @@ router.post('/', asyncHandler(async (req, res) => {
   } else {
       res.json({ 'nothing' : 'nothing' });
   }
-  
+
 }))
 
 module.exports = router;

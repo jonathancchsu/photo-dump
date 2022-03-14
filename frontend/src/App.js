@@ -31,7 +31,9 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  if (sessionUser) id = sessionUser.id;
+  if (sessionUser) {
+    id = sessionUser.id;
+  }
 
   useEffect(() => {
     dispatch(getAllAlbums(id))

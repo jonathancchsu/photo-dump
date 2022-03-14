@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Album = sequelize.define('Album', {
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(50),
       allowNull: false,
       validate: {
         len: [1, 50]

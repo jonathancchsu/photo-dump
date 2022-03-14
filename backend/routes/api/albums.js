@@ -7,24 +7,23 @@ const { Album, User, Photo, PhotosInAlbum } = require('../../db/models');
 const router = express.Router();
 
 router.get('/users/:id(\\d+)', asyncHandler(async (req, res) => {
-  const userId = req.params.id;
-  const albums = await Album.findAll({
+  const user = req.params.id;
+  const response = await Album.findAll({
     where: {
-      user_id: +userId
+      user_id: +user
     },
-    include: [{ model: User },
-    { mdoel: PhotosInAlbum,
+    include: [{ model: User }, { mdoel: PhotosInAlbum,
       include: Photo
     }]
   });
-  res.json(albums);
+  res.json(response);
 }))
 
 router.post('/', asyncHandler(async (req, res) => {
-  const { name, userId } = req.body;
+  const { name, user_id } = req.body;
   const album = await Album.create({
       name,
-      userId
+      user_id
   })
 
   res.json(album);
