@@ -64,7 +64,7 @@ function App() {
           <Route exact path='/'>
             <Explore />
           </Route>
-          <Route exact oath='/profile'>
+          <Route exact path='/profile'>
             <MyPhotos />
           </Route>
           <Route exact path='/albums'>
