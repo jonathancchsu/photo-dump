@@ -13,7 +13,7 @@ import Explore from "./components/PhotoActions/Explore";
 import EditPhoto from "./components/PhotoActions/EditPhoto";
 import ViewPhoto from "./components/PhotoActions/ViewPhoto";
 import SplashPage from "./components/SplashPage";
-import { getAllAlbums } from "../src/store/album";
+import EditComment from "./components/CommentActions/EditComment";
 
 function App() {
   const dispatch = useDispatch();
@@ -60,6 +60,18 @@ function App() {
                 <SplashPage />
               }
             </Route>
+            <Route path='/login'>
+              {sessionUser ?
+                <LoginFormPage /> :
+                <Redirect to='/' />
+              }
+            </Route>
+            <Route path='/signup'>
+              {sessionUser ?
+                <SignupFormPage /> :
+                <Redirect to='/' />
+              }
+            </Route>
             <Route exact path='/photos/new'>
               <AddPhoto />
             </Route>
@@ -69,6 +81,9 @@ function App() {
             <Route exact path='/photos/:id/edit'>
               <EditPhoto />
             </Route>
+            <Route exact path='/photos/:photo_id/:comment_id/edit'>
+            <EditComment />
+          </Route>
             <Route>
               <p className="page-does-not-exist">Sorry, this page does not exist.</p>
             </Route>

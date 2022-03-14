@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link } from 'react-router-dom'
-import { addPhotosInAlbum } from '../../../store/photosInAlbum'
 import * as sessionActions from '../../../store/session'
 
 import { getAllPhotos } from '../../../store/photos'
@@ -9,7 +8,7 @@ import { editingPhoto } from '../../../store/photos'
 
 import './EditPhoto.css'
 
-function EditPhoto({ albums }) {
+function EditPhoto() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
@@ -25,7 +24,6 @@ function EditPhoto({ albums }) {
 
     const [title, setTitle] = useState(editPhoto?.title);
     const [caption, setCaption] = useState(editPhoto?.caption);
-    const [album_id, setAlbum_id] = useState('');
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
@@ -58,16 +56,7 @@ function EditPhoto({ albums }) {
         caption
       }
 
-      const photosInAlbumPayload = {
-        photo_id: editPhoto.id,
-        album_id
-      }
-
       const updateThisPhoto = await dispatch(editingPhoto(payload));
-
-      if (album_id) {
-        const addToAlbum = await dispatch(addPhotosInAlbum(photosInAlbumPayload));
-      }
 
       history.push(`/photos/${id}`);
     }
@@ -113,15 +102,6 @@ function EditPhoto({ albums }) {
                 />
             </label>
             </div>
-            {albums.length ?
-              <div className='label-container'>
-                <select className='album-select' value={album_id} onChange={ e => setAlbum_id(e.target.value)}>
-                  <option className='upload-label-area album-option' value=''>Choose an album</option>
-                  {albums?.map(album => <option className='upload-label-area album-option' key={album.id} value={album.id}>{album.name}</option>)}
-                </select>
-              </div>
-              :
-              <></>}
             <div className='edit-photo'>
               <button type='submit'>Update</button>
             </div>

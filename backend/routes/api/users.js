@@ -44,6 +44,10 @@ router.post(
   })
 );
 
+router.get('/', asyncHandler(async (req,res) => {
+  const users = await User.findAll();
+  return res.json(users);
+}))
 // testing user signup
 // fetch('/api/users', {
 //   method: 'POST',

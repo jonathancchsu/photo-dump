@@ -1,7 +1,5 @@
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import Footer from "../Footer";
-import Header from "../Header";
 import './SplashPage.css'
 
 function SplashPage() {
@@ -13,8 +11,10 @@ function SplashPage() {
 
   return (
     <div className='splash-container'>
-      <Header />
-      <Footer />
+      <div className="landingPageContainer">
+        <h1 className="landingH1">Welcome to Photo Dump.</h1>
+        <div className="landingMessage">Come join the community and share your daily life!</div>
+      </div>
     </div>
   )
 }

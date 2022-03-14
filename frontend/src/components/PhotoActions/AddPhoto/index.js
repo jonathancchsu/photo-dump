@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 
 import { uploadingPhoto } from '../../../store/photos';
-import { addPhotosInAlbum } from '../../../store/photosInAlbum';
-import { getAllAlbums } from '../../../store/album';
 
 import * as sessionActions from '../../../store/session';
 
@@ -14,12 +12,10 @@ function AddPhoto () {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
-  const albums = useSelector(state => state.albumState.entries)
   const [user_id, setUser_id] = useState();
   const [title, setTitle] = useState('');
   const [photo_url, setPhoto_url] = useState('');
   const [caption, setCaption] = useState('');
-  // const [album_id, setAlbum_id] = useState('');
   const [errors, setErrors] = useState([]);
 
   useEffect (() => {
@@ -29,7 +25,7 @@ function AddPhoto () {
     if (sessionUser.user) {
       setUser_id(sessionUser.user.id);
     }
-  }, []);
+  }, [sessionUser.id, sessionUser.user]);
 
   // useEffect(() => {
   //   dispatch(getAllAlbums());
@@ -114,20 +110,6 @@ function AddPhoto () {
             />
           </label>
         </div>
-        {/* {albums.length ?
-          <div className='upload-form-labels'>
-            <select className='select-album' value={album_id} onChange={e => setAlbum_id(e.target.value)}>
-              <option className='upload-label album-option' value=''>Choose an album</option>
-              {albums?.map(album =>
-                <option className='upload-form-labels album-options' key={album.id} value={album.id}>
-                  {album.name}
-                </option>
-              )}
-            </select>
-          </div>
-          :
-          <></>
-        } */}
         <div className='upload-photo-btn'>
           <button type='submit'>Upload</button>
         </div>
