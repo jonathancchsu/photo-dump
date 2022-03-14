@@ -14,7 +14,7 @@ module.exports = {
       },
       photo_url: {
         allowNull: false,
-        type: Sequelize.TEXT
+        type: Sequelize.STRING(1000)
       },
       caption: {
         allowNull: false,

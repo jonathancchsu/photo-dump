@@ -10,7 +10,7 @@ router.get('/users/:id(\\d+)', asyncHandler(async (req, res) => {
   const user = req.params.id;
   const response = await Album.findAll({
     where: {
-      user_id: +user
+      user_id: +user,
     },
     include: [{ model: User }, { mdoel: PhotosInAlbum,
       include: Photo

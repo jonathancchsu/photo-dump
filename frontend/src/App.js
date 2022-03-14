@@ -23,7 +23,6 @@ import { getAllAlbums } from "./store/album";
 function App() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const albums = useSelector(state => state.albumState.entries);
   let id;
   const [isLoaded, setIsLoaded] = useState(false);
 
