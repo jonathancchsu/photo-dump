@@ -31,11 +31,11 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 router.post('/', photoValidation, asyncHandler(async (req, res, next) => {
-    const { userId, title, photo_url, caption } = req.body;
+    const { user_id, title, photo_url, caption } = req.body;
     const validatorErrors = validationResult(req);
     if (validatorErrors.isEmpty()){
         const photo = await Photo.create({
-            userId,
+            user_id,
             title,
             photo_url,
             caption
