@@ -55,8 +55,8 @@ function EditPhoto() {
         title,
         caption
       }
-
-      const updatedPhoto = await dispatch(editingPhoto(payload));
+      // console.log("this is payload--------------",payload);
+      const edit = await dispatch(editingPhoto(payload));
 
       history.push(`/photos/${id}`);
     }

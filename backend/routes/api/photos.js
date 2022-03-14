@@ -46,17 +46,17 @@ router.post('/', photoValidation, asyncHandler(async (req, res, next) => {
 }))
 
 router.patch('/:id', asyncHandler(async (req, res) => {
-    const photo = await Photo.findByPk(req.params.id);
-    const { title, caption } = req.body;
+    const choicePhoto = await Photo.findByPk(req.params.id)
+    const { title, description } = req.body
 
-    if (photo) {
-      await choicePhoto.update({
-          title,
-          caption
-      });
+    if (choicePhoto) {
+        await choicePhoto.update({
+            title,
+            description
+        })
     }
-    const updatedPhoto = await Photo.findByPk(req.params.id);
-    return res.json(updatedPhoto);
+    const updatedPhoto = await Photo.findByPk(req.params.id)
+    return res.json(updatedPhoto)
 }))
 
 router.delete('/:id', asyncHandler(async (req, res) => {

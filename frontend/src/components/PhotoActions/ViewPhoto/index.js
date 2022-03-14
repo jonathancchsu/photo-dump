@@ -46,15 +46,6 @@ function ViewPhoto () {
     }
   }
 
-  // function onDeletePhoto() {
-  //   let result = window.confirm("Are you sure you want to delete?")
-
-  //   if (result) {
-  //       dispatch(deletingPhoto(id))
-  //       history.push('/')
-  //   }
-  // }
-
   const handleDelete = async (e) => {
 
     const deleting = await dispatch(deletingPhoto(selectedPhoto))
@@ -102,7 +93,7 @@ function ViewPhoto () {
       <div className="commentsContainer">
         <div className="allComments">
           {comments?.map((comment) => (
-            <div className="singleComment">
+            <div className="singleComment" key={comment.id}>
               <div>
                 {getUsername(comment?.user_id)}: {comment.comments}
               </div>

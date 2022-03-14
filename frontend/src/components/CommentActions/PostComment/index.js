@@ -3,26 +3,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addComment } from '../../../store/comments';
 
-import './PostComment.css';
-
 
 function PostComment() {
-    const { photo_id } = useParams();
+    const { id } = useParams();
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [newComment, setNewComment] = useState("");
     const [errors, setErrors] = useState([]);
 
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
 
         const newComments = {
             user_id: sessionUser.id,
-            photo_id: photo_id,
+            photo_id: id,
             comments: newComment
         }
+        console.log("123131233",newComments)
         if (newComment) {
-            const comment = await dispatch(addComment(newComments))
+            dispatch(addComment(newComments))
             setNewComment('')
             return;
         }

@@ -1,43 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateComment } from '../../../store/comments';
 import { useHistory, useParams } from 'react-router-dom';
-
-// import * as sessionActions from '../../../store/session'
 import './EditComment.css';
 
 function EditComment() {
     const dispatch = useDispatch();
     const { id, comment_id } = useParams();
-    // const photo = useSelector(state => state.photoState);
+    const photo = useSelector(state => state.photoState);
     const sessionUser = useSelector(state => state.session.user);
     const comment = useSelector(state => state.commentState);
-    const [updateThisComment, setUpdateThisComment] = useState(comment[comment_id].comment);
+    const [updateThisComment, setUpdateThisComment] = useState(comment[comment_id].comments);
     const history = useHistory();
 
-    useEffect(() => {
-      if (!updateThisComment) {
-        setUpdateThisComment()
-      }
-    })
+    const handleSubmit = e => {
+        // e.preventDefault();
 
-    // useEffect(() => {
-    //   dispatch(sessionActions.restoreUser());
-    // }, [dispatch])
+        const updatedComment = {
+            id: comment_id,
+            user_id: sessionUser.id,
+            photo_id: photo[id].id,
+            comment: updateThisComment
+        }
+        console.log('-----------', updatedComment.id)
 
-    const handleSubmit = async e => {
-      // e.preventDefault();
-
-      const updatedComment = {
-          id: comment_id,
-          user_id: sessionUser.id,
-          photo_id: id,
-          comments: comment ? updateThisComment : null
-      }
-
-      const updated = await dispatch(updateComment(updatedComment));
-
-      history.push(`/photos/${id}`);
+        // if (updatedComment.comment) {
+            dispatch(updateComment(updatedComment));
+            history.push(`/photos/${id}`)
+        // }
     }
 
     const onClick = () => {
@@ -56,8 +46,8 @@ function EditComment() {
                     className="descriptionInput"
                 ></textarea>
                 <div className="postButtonContainer">
-                    <button className="postButton" type="submit">Submit</button>
-                    <div onClick={onClick} className="cancelButton">
+                    <button className="btn" type="submit">Submit</button>
+                    <div onClick={onClick} className="btn">
                         Cancel
                     </div>
                 </div>

@@ -38,7 +38,7 @@ asyncHandler(async (req, res) => {
     const newComment = await Comment.findByPk(comment_id)
     if (newComment) {
         await newComment.update({
-            comment: comment
+            comments: comment
         })
     }
     return res.json(newComment);

@@ -45,7 +45,7 @@ function AddPhoto () {
     let errs = [];
 
     const image = await dispatch(uploadingPhoto(payload));
-    console.log('image', image)
+    // console.log('image', image)
     // if (image && album_id) {
     //   let photosInAlbumPayload = {
     //     album_id: +album_id,
