@@ -15,7 +15,7 @@ function AddAlbum () {
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     let errors = [];
@@ -29,7 +29,7 @@ function AddAlbum () {
 
     let payload = {
       name,
-      userId: sessionUser.id
+      user_id: sessionUser.id
     };
 
     const album = await dispatch(uploadingAlbum(payload));
@@ -62,7 +62,7 @@ function AddAlbum () {
           <div className='album-create-button'>
             <button type='submit'>Create Album</button>
           </div>
-          <div className='album-cancel-create-button'>
+          <div className='album-create-button'>
             <Link className='cancel-album-creation' to='/albums'>Cancel</Link>
           </div>
       </form>

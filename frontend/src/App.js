@@ -13,7 +13,7 @@ import ViewAlbum from "./components/AlbumActions/ViewAlbum";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import AddPhoto from "./components/PhotoActions/AddPhoto";
-import AllPhotos from "./components/PhotoActions/Explore";
+import Explore from "./components/PhotoActions/Explore";
 import EditPhoto from "./components/PhotoActions/EditPhoto";
 import MyPhotos from "./components/PhotoActions/MyPhotos";
 import ViewPhoto from "./components/PhotoActions/ViewPhoto";
@@ -62,11 +62,8 @@ function App() {
     <>
       <Header />
         <Switch>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
           <Route exact path='/'>
-            <AllPhotos />
+            <Explore />
           </Route>
           <Route exact oath='/profile'>
             <MyPhotos />
@@ -81,16 +78,16 @@ function App() {
             <ViewAlbum />
           </Route>
           <Route exact path='/albums/:id/edit'>
-            <EditAlbum albums={albums}/>
+            <EditAlbum />
           </Route>
           <Route exact path='/photos/new'>
-            <AddPhoto albums={albums}/>
+            <AddPhoto />
           </Route>
           <Route exact path='/photos/:id'>
             <ViewPhoto />
           </Route>
           <Route exact path='/photos/:id/edit'>
-            <EditPhoto albums={albums}/>
+            <EditPhoto />
           </Route>
           <Route path='/login'>
             <Redirect to='/' />

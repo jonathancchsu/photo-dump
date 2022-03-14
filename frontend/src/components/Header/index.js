@@ -10,11 +10,25 @@ import './Header.css';
 function Header () {
   const dispatch = useDispatch();
   const history = useHistory();
+  const sessionUser = useSelector(state => state.session.user);
 
   const logout = (e) => {
     e.preventDefault();
     history.push('/');
     return dispatch(sessionActions.logout());
+  }
+
+  if (!sessionUser) {
+    return (
+      <>
+        <div className='header-div'>
+          <div className='user-navbar-div'>
+            <Link className='login' to='/login'>Log In</Link>
+            <Link className='signup' to='/signup'>Sign Up</Link>
+          </div>
+        </div>
+      </>
+    )
   }
 
   return (

@@ -7,14 +7,14 @@ import { editingAlbum, getAllAlbums } from '../../../store/album';
 
 import './EditAlbum.css';
 
-function EditAlbum({ albums }) {
+function EditAlbum() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
 
   const sessionUser = useSelector(state => state.session.user);
   const allAlbums = useSelector(state => state.albumState.entries);
-  const userId = sessionUser.id;
+  const user_id = sessionUser.id;
   const selectedAlbum = allAlbums.find(album => album.id === + id);
 
   const [name, setName] = useState(selectedAlbum?.name);
@@ -49,7 +49,7 @@ function EditAlbum({ albums }) {
     )
   }
 
-  if (userId !== selectedAlbum?.userId) {
+  if (user_id !== selectedAlbum?.user_id) {
     return (
       <p className='album-wrong-owner'>This is not your album.</p>
     )

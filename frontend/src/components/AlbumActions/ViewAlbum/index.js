@@ -20,7 +20,7 @@ function ViewAlbum() {
     dispatch(getAllAlbums());
   }, []);
 
-  const deletingAlbum = (e) => {
+  const handleDelete = (e) => {
     e.preventDefault();
     dispatch(deletingAlbum(id));
     history.push('/albums');
@@ -44,7 +44,7 @@ function ViewAlbum() {
       <>
       <div className='album-name-div'>
         <h1 className='album-name'>{selectedAlbum.name}</h1>
-        <div className='album-delete-btn' onClick={deletingAlbum}>Delete</div>
+        <div className='album-delete-btn' onClick={handleDelete}>Delete</div>
         <Link className='album-edit-btn' to={`/albums/${id}/edit`}>Edit</Link>
       </div>
       <div className='album-div'>
@@ -58,7 +58,7 @@ function ViewAlbum() {
     <>
       <div className='album-name-div'>
         <h1 className='album-name'>{selectedAlbum.name}</h1>
-        <div className='album-delete-btn' onClick={deletingAlbum}>Delete</div>
+        <div className='album-delete-btn' onClick={handleDelete}>Delete</div>
         <Link className='album-edit-btn' to={`/albums/${id}/edit`}>Edit</Link>
       </div>
       <div className='album-div'>

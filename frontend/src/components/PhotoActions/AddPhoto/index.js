@@ -7,10 +7,11 @@ import { addPhotosInAlbum } from '../../../store/photosInAlbum';
 
 import './AddPhoto.css';
 
-function AddPhoto ({ albums }) {
+function AddPhoto () {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
+  const albums = useSelector(state => state.albumState.entries)
   const [user_id, setUser_id] = useState();
   const [title, setTitle] = useState('');
   const [photo_url, setPhoto_url] = useState('');
@@ -37,7 +38,7 @@ function AddPhoto ({ albums }) {
       caption
     };
 
-    let errors = [];
+    let errs = [];
 
     const image = await dispatch(uploadPhoto(payload));
     if (image && album_id) {
@@ -52,8 +53,8 @@ function AddPhoto ({ albums }) {
     if (image.errors) {
       const errorList = Object.values(image.errors);
       const errorArr = [...errorList];
-      errorArr.map(error => errors.push(error.msg));
-      setErrors(errors);
+      errorArr.map(error => errs.push(error.msg));
+      setErrors(errs);
     } else {
       history.push(`/photos/${image.id}`);
     }

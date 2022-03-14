@@ -9,13 +9,14 @@ import { editingPhoto } from '../../../store/photos'
 
 import './EditPhoto.css'
 
-function EditPhoto({albums}) {
+function EditPhoto() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
 
     const sessionUser = useSelector(state => state.session.user);
     const allPhotos = useSelector(state => state.photoState.entries);
+    const albums = useSelector(state => state.albumState.entries);
     const editPhoto = allPhotos.find(one => one.id === +id);
 
     useEffect(() => {
